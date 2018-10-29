@@ -1,0 +1,10 @@
+Basic PSQL commands
+
+#clear psql screen
+\! clear
+
+#Delete table 
+DROP TABLE tablename;
+
+#Delete DB
+DROP DATABASE dbname;
