@@ -8,3 +8,7 @@ DROP TABLE tablename;
 
 #Delete DB
 DROP DATABASE dbname;
+
+#\l to list all databases
+
+#\d to list all tables
