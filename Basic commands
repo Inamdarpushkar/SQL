@@ -2,7 +2,7 @@ To force stop postgres server
 #brew services stop postgresql
 #then restart again
 
-Basic PSQL commands
+*********Basic PSQL commands*********
 
 #clear psql screen
 \! clear
@@ -30,7 +30,81 @@ SELECT * FROM tablename LIMIT 10;
 
 #To list column names and datatypes in the table
 
+\d tablename
+
+OR
+
 SELECT column_name, data_type
 FROM   information_schema.columns
 WHERE  table_name = 'tablename'
 ORDER  BY ordinal_position;
+
+#To find unique values
+SELECT DISTINCT table_feature FROM tablename;
+
+#count particular feature from colun
+SELECT COUNT(*) FROM tablename WHERE columnname='feature';
+
+#count all feature from column
+SELECT id,COUNT (*)
+FROM tablename
+GROUP BY column_name;
+
+#total of distinct features
+SELECT COUNT (DISTINCT column_name) FROM table_name;
+
+*****Inbuilt functions*******
+
+#finding max and min 
+SELECT max(column_name) FROM table_name;
+SELECT min(column_name) FROM table_name;
+
+#finding average
+SELECT avg(column_name) FROM table_name
+
+#min,max,avg and group_by combined
+SELECT column_name,min(column_name),max(column_name),avg(column_name)
+FROM table_name
+GROUP BY column2
+
+#Alias 
+SELECT 
+  column,
+  AVG(column) AS Average_column,
+  MIN(column) AS Minimum_column,
+  MAX(column) AS Maximum_column
+FROM meals
+GROUP BY type;
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
