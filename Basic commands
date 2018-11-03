@@ -98,9 +98,36 @@ daste_part('Minth,date_columns) condition
 SELECT * FROM tablename
 ORDER BY column1 ASC, column2 DESC; 
 
+#CASE
+SELECT 
+    meal_id,
+    SUM(CASE WHEN columnname='' THEN 1 ELSE 0 END) AS alias,
+    SUM(CASE WHEN columname='like' THEN 1 ELSE 0 END) AS alias,
+    SUM(CASE WHEN columnname='share' THEN 1 ELSE 0 END) AS alias
+FROM tablename
+GROUP BY columname
+ORDER BY columnname ASC;
 
 
+SELECT
+    type,
+    AVG(price) AS avg_price,
+    MIN(price) AS min_price,
+    MAX(price) AS max_price
+FROM meals
+WHERE
+    date_part('year', dt)=2013 AND
+    date_part('month', dt)<=3
+GROUP BY type;
 
+SELECT
+    users.userid,
+    users.campaign_id,
+    events.meal_id,
+    events.event
+FROM users
+JOIN events
+ON users.userid=events.userid;
 
 
 
