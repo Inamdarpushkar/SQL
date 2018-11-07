@@ -130,7 +130,14 @@ JOIN events
 ON users.userid=events.userid;
 
 
-
+SELECT
+    users.userid,
+    users.campaign_id,
+    events.meal_id,
+    events.event
+FROM users
+JOIN events
+ON users.userid=events.userid;
 
 
   
