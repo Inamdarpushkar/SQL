@@ -1,4 +1,4 @@
-To force stop postgres server 
+To force stop postgres server
 #brew services stop postgresql
 #then restart again
 
@@ -20,20 +20,20 @@ DROP INDEX - deletes an index
 #clear psql screen
 \! clear
 
-#Delete table 
+#Delete table
 DROP TABLE tablename;
 
 #Delete DB
 DROP DATABASE dbname;
 
 list all databases
-#\l 
+#\l
 
 what are the tables in our database?
-#\d 
+#\d
 
 What columns does each table have?
-#\d tablename 
+#\d tablename
 
 Connect to the database
 #\c databasename
@@ -68,7 +68,7 @@ SELECT COUNT (DISTINCT column_name) FROM table_name;
 
 *****Inbuilt functions*******
 
-#finding max and min 
+#finding max and min
 SELECT max(column_name) FROM table_name;
 SELECT min(column_name) FROM table_name;
 
@@ -80,8 +80,8 @@ SELECT column_name,min(column_name),max(column_name),avg(column_name)
 FROM table_name
 GROUP BY column2
 
-#Alias 
-SELECT 
+#Alias
+SELECT
   column,
   AVG(column) AS Average_column,
   MIN(column) AS Minimum_column,
@@ -96,10 +96,10 @@ daste_part('Minth,date_columns) condition
 
 #ORDER BY
 SELECT * FROM tablename
-ORDER BY column1 ASC, column2 DESC; 
+ORDER BY column1 ASC, column2 DESC;
 
 #CASE
-SELECT 
+SELECT
     meal_id,
     SUM(CASE WHEN columnname='' THEN 1 ELSE 0 END) AS alias,
     SUM(CASE WHEN columname='like' THEN 1 ELSE 0 END) AS alias,
@@ -140,27 +140,11 @@ JOIN events
 ON users.userid=events.userid;
 
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+SELECT * FROM Customers;
 
+  SELECT * FROM CUSTOMERS;
+  WHERE City = 'Berlin' AND PostalCode=12209
 
-
-
-
-
-
-
-
-
-
-
-
-
+SELECT COUNT(*)
+FROM Products
+WHERE Price = 18;
