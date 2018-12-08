@@ -90,3 +90,30 @@ WHERE winner='EUGENE O\'NEILL'
 SELECT winner, subject FROM nobel
 WHERE yr=1984
 ORDER BY subject IN ('Chemistry','Physics'),subject,winner
+
+#
+SELECT name FROM world
+WHERE population>(SELECT population FROM world WHERE name='Russia')
+
+#
+SELECT name FROM world
+WHERE continent='Europe' AND gdp/population>(SELECT gdp/population FROM world WHERE name='United Kingdom')
+
+#
+SELECT name, continent FROM world
+WHERE continent=(SELECT continent FROM world WHERE name = 'Argentina') OR continent=(SELECT continent FROM world WHERE name = 'Australia')
+ORDER BY name
+
+#
+SELECT name,population FROM world
+WHERE population>(SELECT population FROM world WHERE name='CANADA') AND
+population<(SELECT population FROM world WHERE name='Poland')
+
+
+#
+SELECT name, CONCAT(ROUND((population/(SELECT population FROM world WHERE name='Germany'))*100,0),'%') FROM world
+WHERE continent='Europe'
+
+#
+SELECT name FROM world
+WHERE gdp>(SELECT max(gdp) FROM world WHERE continent='Europe')
