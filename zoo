@@ -117,3 +117,18 @@ WHERE continent='Europe'
 #
 SELECT name FROM world
 WHERE gdp>(SELECT max(gdp) FROM world WHERE continent='Europe')
+
+#List each continent and the name of the country that comes first alphabetically.
+SELECT continent,name FROM world x
+WHERE name<=ALL(SELECT name FROM world y WHERE x.continent=y.continent)
+
+
+#Counting big countries in each continent
+SELECT continent,count(name) FROM world
+WHERE population>=10000000
+GROUP BY continent
+
+#Counting big continents
+SELECT continent FROM world
+GROUP BY continent
+HAVING SUM(population)>100000000
