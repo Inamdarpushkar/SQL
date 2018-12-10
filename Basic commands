@@ -148,3 +148,36 @@ SELECT * FROM Customers;
 SELECT COUNT(*)
 FROM Products
 WHERE Price = 18;
+
+#
+SELECT name,continent,population FROM world
+
+SELECT name FROM world
+WHERE population>=200000000
+
+SELECT name, (gdp/population) as per_capita_GDP
+FROM world
+WHERE population>=200000000
+
+SELECT name, population/1000000 FROM world
+WHERE continent='South America'
+
+SELECT name, population
+FROM world
+WHERE name in ('France','Germany','Italy')
+
+SELECT name FROM world
+WHERE name LIKE '%United%'
+
+SELECT name, population, area FROM world
+WHERE area>3000000 OR population>250000000
+
+#XOR includes when only one condition is true and excludes
+#when both conditions are true
+#In case of OR includes when in all case(one of the criteria is fulfilled on both the criterias are full filled)
+
+SELECT name, population, area FROM world
+WHERE area>3000000 XOR population>250000000
+
+SELECT name, ROUND(population/1000000,2), ROUND(gdp/1000000000,2) FROM world
+WHERE continent='South America'
