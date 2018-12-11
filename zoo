@@ -134,9 +134,6 @@ GROUP BY continent
 HAVING SUM(population)>100000000
 
 
-
-
-
 SELECT movie.yr, count(yr)FROM movie
 JOIN casting ON
 movie.id=casting.movieid
@@ -147,15 +144,11 @@ GROUP BY yr
 HAVING (count(yr))>2
 
 
-
-
 SELECT title, actor.name FROM movie LEFT JOIN casting ON
 movie.id=casting.movieid
 LEFT JOIN actor ON
 casting.actorid=actor.id
 WHERE yr=1962 AND casting.ord=1
-
-
 
 
 SELECT title
@@ -165,3 +158,20 @@ movie.id=casting.movieid
 JOIN actor ON
 casting.actorid=actor.id
 WHERE actor.name='Harrison Ford' AND casting.ord <>1
+
+
+SELECT name FROM movie
+JOIN casting
+ON movie.id=movieid
+JOIN actor
+ON actorid=actor.id
+WHERE movieid IN (SELECT movieid from casting
+JOIN actor
+ON actorid=actor.id
+WHERE name='Art Garfunkel') AND actor.name<>'Art Garfunkel'
+
+#Show the 1984 winners and subject ordered by subject and winner name; but list Chemistry and Physics last.
+SELECT winner,subject
+  FROM nobel
+ WHERE yr=1984
+ ORDER BY subject IN ('Physics','Chemistry'),subject, winner
