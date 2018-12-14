@@ -175,3 +175,6 @@ SELECT winner,subject
   FROM nobel
  WHERE yr=1984
  ORDER BY subject IN ('Physics','Chemistry'),subject, winner
+
+
+SELECT name,COALESCE(mobile ,'07986 444 2266')FROM teacher 
