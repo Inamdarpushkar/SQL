@@ -13,3 +13,10 @@ ORDER BY subject IN ('Chemistry','Physics'),subject,winner
 SELECT name, CONCAT(ROUND((population*100)/(SELECT population FROM world WHERE name='Germany'),0),'%') as POPULATION_EUROPE
 FROM world
 WHERE continent = 'Europe'
+
+
+
+#Find the largest country (by area) in each continent, show the continent, the name and the area:
+SELECT x.continent, x.name, x.area FROM world as x
+WHERE x.area=(SELECT MAX(y.area) FROM world as y
+WHERE x.continent=y.continent)
